@@ -2,10 +2,7 @@ package fr.avahip.apimaleen.controller;
 
 import fr.avahip.apimaleen.dto.MangaDto;
 import fr.avahip.apimaleen.service.MangasServices;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -27,5 +24,9 @@ public class MangasController {
     @GetMapping("/populaires")
     public List<MangaDto> getPopularMangas(@RequestParam String page) {
         return service.findMostPopularManga(page);
+    }
+    @GetMapping("/{title}")
+    public MangaDto getMangaByTitle(@PathVariable String title) {
+        return service.findMangaByTitle(title);
     }
 }

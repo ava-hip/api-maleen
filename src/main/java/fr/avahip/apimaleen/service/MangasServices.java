@@ -3,7 +3,6 @@ package fr.avahip.apimaleen.service;
 import fr.avahip.apimaleen.dto.MangaDto;
 import fr.avahip.apimaleen.generic.service.GenericMangasScrapperService;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -21,5 +20,9 @@ public class MangasServices {
 
     public List<MangaDto> findTrendingManga(String page) {
         return service.scrapMangasList("classements/tendance/manga/" + page + "/");
+    }
+
+    public MangaDto findMangaByTitle(String title) {
+        return service.scrapMangaInfo(title);
     }
 }
